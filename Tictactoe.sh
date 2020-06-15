@@ -155,7 +155,9 @@ shellNumber=9
 return 1
 elif ((${board[4]} == 5 ))
 then
-#herhehr
+shellNumber=5
+return 1
+#hererrere
 function computerWinBlockShell(){
 
 #Rows
