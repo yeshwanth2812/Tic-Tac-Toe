@@ -101,3 +101,36 @@ function computerInput()
 	return
 	fi
 }
+
+function checkWinCombination()
+{
+local symbol=$1
+
+	if [ ${board[0]} == $symbol ] && [ ${board[1]} == $symbol ] && [ ${board[2]} == $symbol ]
+	then
+	echo 1
+	elif [ ${board[3]} == $symbol ] && [ ${board[4]} == $symbol ] && [ ${board[5]} == $symbol ]	
+	then
+	echo 1
+	elif [ ${board[6]} == $symbol ] && [ ${board[7]} == $symbol ] && [ ${board[8]} == $symbol ]
+	then
+	echo 1
+	elif [ ${board[0]} == $symbol ] && [ ${board[3]} == $symbol ] && [ ${board[6]} == $symbol ]
+	then
+	echo 1
+	elif [ ${board[1]} == $symbol ] && [ ${board[4]} == $symbol ] && [ ${board[7]} == $symbol ]
+	then
+	echo 1
+	elif [ ${board[2]} == $symbol ] && [ ${board[5]} == $symbol ] && [ ${board[8]} == $symbol ]
+	then
+	echo 1
+	elif [ ${board[0]} == $symbol ] && [ ${board[4]} == $symbol ] && [ ${board[8]} == $symbol ]
+	then
+	echo 1
+	elif [ ${board[2]} == $symbol ] && [ ${board[4]} == $symbol ] && [ ${board[6]} == $symbol ]
+	then
+	echo 1
+	else
+	echo 0
+	fi
+}
