@@ -78,3 +78,26 @@ function playerInput()
 	board[$shellNumber-1]=$playerSymbol
 	updatedBoard
 }
+
+function computerInput()
+{
+	echo -e "\nComputer's turn,"
+	computerWinBlockShell $computerSymbol
+	checkWinningShell=$?
+	if [ $checkWinningShell -eq 1 ]
+	then
+	return
+	fi
+	computerWinBlockShell $playerSymbol
+	checkBlocking=$?
+	if [ $checkBlocking -eq 1 ]
+	then
+	return
+	fi
+	computerCornerCentreSideShell
+	check=$?
+	if [ $check -eq 1 ]
+	then
+	return
+	fi
+}
