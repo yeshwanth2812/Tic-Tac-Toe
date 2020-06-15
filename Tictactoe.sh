@@ -134,3 +134,116 @@ local symbol=$1
 	echo 0
 	fi
 }
+
+function computerWinBlockShell(){
+
+#Rows
+local symbol=$1
+local a=0
+local r=0
+for ((a=0,r=0;$a<$row;a++,r=$(($r+3))))
+do
+
+if [ ${board[r]} == $symbol ] && [ ${board[r+1]} == $symbol ]
+then
+if (( ${board[r+2]} == $(($r+2+1)) ))
+then
+shellNumber=$(($r+2+1))
+return 1
+fi
+elif [ ${board[r]} == $symbol ] && [ ${board[r+2]} == $symbol ]
+then
+if (( ${board[r+1]} == $(($r+1+1)) ))
+then
+shellNumber=$(($r+1+1))
+return 1
+fi
+elif [ ${board[r+1]} == $symbol ] && [ ${board[r+2]} == $symbol ]
+then
+if (( ${board[r]} == $(($r+1)) ))
+then
+shellNumber=$(($r+1))
+return 1
+fi
+fi
+done
+
+
+#colmumn
+local c=0
+for ((c=0;$c<$column;c++))
+do
+if [ ${board[c]} == $symbol ] && [ ${board[c+3]} == $symbol ]
+then
+if (( ${board[c+6]} == $(($c+6+1)) ))
+then
+shellNumber=$(($c+6+1))
+return 1
+fi
+elif [ ${board[c]} == $symbol ] && [ ${board[c+6]} == $symbol ]
+then
+if (( ${board[c+3]} == $(($c+3+1)) ))
+then
+shellNumber=$(($c+3+1))
+return 1
+fi
+elif [ ${board[c+3]} == $symbol ] && [ ${board[c+6]} == $symbol ]
+then
+if (( ${board[c]} == $(($c+1)) ))
+then
+shellNumber=$(($c+1))
+return 1
+fi
+fi
+done
+
+
+#diagonals
+if [ ${board[0]} == $symbol ] && [ ${board[4]} == $symbol ]
+then
+if (( ${board[8]}==9 ))
+then
+shellNumber=9
+return 1
+fi
+elif [ ${board[0]} == $symbol ] && [ ${board[8]} == $symbol ]
+then
+if (( ${board[4]}==5 ))
+then
+shellNumber=5
+return 1
+fi
+elif [ ${board[4]} == $symbol ] && [ ${board[8]} == $symbol ]
+then
+if (( ${board[0]}==1 ))
+then
+shellNumber=1
+return 1
+fi
+
+
+elif [ ${board[2]} == $symbol ] && [ ${board[4]} == $symbol ]
+then
+if (( ${board[6]}==7 ))
+then
+shellNumber=7
+return 1
+fi
+elif [ ${board[2]} == $symbol ] && [ ${board[6]} == $symbol ]
+then
+if (( ${board[4]}==5 ))
+	then
+	shellNumber=5
+	return 1
+	fi
+	elif [ ${board[4]} == $symbol ] && [ ${board[6]} == $symbol ]
+	then
+	if (( ${board[2]}==3 ))
+	then
+	shellNumber=3
+	return 1
+	fi
+	else
+	return 0
+	fi
+}
