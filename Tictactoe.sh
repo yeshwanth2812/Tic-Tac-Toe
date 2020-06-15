@@ -4,6 +4,20 @@ echo -e "Player vs Computer\n"
 row=3
 column=3
 numberOfShell=$(($row*$column))
+function toss()
+{
+	echo -e "Toss.."
+	checkToss=$((RANDOM%2))
+	if (($checkToss == 1 ))
+	then
+	echo -e "\nPlayer Won the Toss\n"
+	playerChance=1
+	else
+	echo -e "\nComputer Won the Toss\n"
+	playerChance=0
+	fi
+}
+
 function assignSymbol()
 {
 	assign=$((RANDOM%2))
