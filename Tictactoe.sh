@@ -4,6 +4,21 @@ echo -e "Player vs Computer\n"
 row=3
 column=3
 numberOfShell=$(($row*$column))
+function assignSymbol()
+{
+	assign=$((RANDOM%2))
+	if (($assign==1))
+	then
+	playerSymbol='X'
+	computerSymbol='O'
+	else
+	playerSymbol='O'
+	computerSymbol='X'
+	fi
+	echo -e "\nPlayer 1 = $playerSymbol"
+	echo -e "Computer = $computerSymbol"
+}
+
 function resetBoard()
 {
 	board=( 1 2 3 4 5 6 7 8 9 )
@@ -17,4 +32,3 @@ function resetBoard()
 	fi
 	done
 }
-resetBoard
