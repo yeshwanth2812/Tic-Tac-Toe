@@ -46,3 +46,15 @@ function resetBoard()
 	fi
 	done
 }
+function updatedBoard()
+{
+	echo -e "\n********* BOARD ***********\n"
+	for (( i=0,j=0;j<$row;i=$(($i+3)),j++ ))
+	do
+	echo -e "\t${board[i]} | ${board[i+1]} | ${board[i+2]}"
+	if (($j!=$(($row-1))))
+	then
+	echo -e "\t---------"
+	fi
+	done
+}
