@@ -157,7 +157,28 @@ elif ((${board[4]} == 5 ))
 then
 shellNumber=5
 return 1
-#hererrere
+elif ((${board[1]} == 2 ))
+then
+shellNumber=2
+return 1
+elif ((${board[3]} == 4 ))
+then
+shellNumber=4
+return 1
+elif ((${board[5]} == 6 ))
+then
+shellNumber=6
+return 1
+elif ((${board[7]} == 8 ))
+then
+shellNumber=8
+return 1
+else
+return 0
+fi
+
+}
+
 function computerWinBlockShell(){
 
 #Rows
