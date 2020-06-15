@@ -58,3 +58,23 @@ function updatedBoard()
 	fi
 	done
 }
+#******** Players Input shell *******
+function playerInput()
+{
+	echo -e "\nPlayer's Turn:"
+	while ((1))
+	do
+	read -p "Select shell number: " shellNumber
+	if (( ($shellNumber<1) || ($shellNumber>9)))
+	then
+	echo "Invalid, input 1...9"
+	elif (($shellNumber!=${board[$shellNumber-1]}))
+	then
+	echo -e "Invalid: Shell is already occupied, choose again"
+	else
+	break
+	fi
+	done
+	board[$shellNumber-1]=$playerSymbol
+	updatedBoard
+}
