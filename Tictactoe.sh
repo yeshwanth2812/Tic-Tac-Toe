@@ -135,6 +135,27 @@ local symbol=$1
 	fi
 }
 
+function computerCornerCentreSideShell() {
+
+if ((${board[0]} == 1 ))
+then
+shellNumber=1
+return 1
+elif ((${board[2]} == 3 ))
+then
+shellNumber=3
+return 1
+elif ((${board[6]} == 7 ))
+then
+shellNumber=7
+return 1
+elif ((${board[8]} == 9 ))
+then
+shellNumber=9
+return 1
+elif ((${board[4]} == 5 ))
+then
+#herhehr
 function computerWinBlockShell(){
 
 #Rows
